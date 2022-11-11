@@ -34,3 +34,11 @@ for item in instance.data["items"]:
  d = defaultdict(float)
         for item in instance.data["items"]:
             d[(item['sales_account'])] += float(item['total_price'])
+            
+            
+ // key value separation 
+for key, value in account_group_sum.items():
+            account_group.append(
+                    {
+                        "credit_account_code": key,
+                        "amount": value,

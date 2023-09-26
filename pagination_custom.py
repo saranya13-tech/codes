@@ -1,0 +1,12 @@
+class OrderPaginator(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = "page_size"
+    max_page_size = 1000
+    def get_paginated_response(self, data):
+        return Response({
+            'count': self.page.paginator.count,  # Total number of items
+            'next': self.get_next_link(),         # Link to the next page
+            'previous': self.get_previous_link(), # Link to the previous page
+            'total_pages': self.page.paginator.num_pages,  # Total number of pages
+            'results': data
+        })
